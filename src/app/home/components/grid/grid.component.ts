@@ -8,7 +8,7 @@ import {HomeService} from '../../home.service';
   styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent implements OnInit {
-  items: Item[];
+  @Input() item: Item;
 
   constructor(
       private homeService: HomeService,
@@ -17,8 +17,8 @@ export class GridComponent implements OnInit {
 
   ngOnInit() {}
 
-  ionViewWillEnter(){
-    this.items = this.homeService.getAllItems();
-  }
+  // ionViewWillEnter(){
+  //   this.items = this.homeService.getAllItems();
+  // }
 
 }

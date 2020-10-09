@@ -1,14 +1,25 @@
-<ion-grid>
-  <ion-row>
-    <ion-col size="6" *ngFor="let item of items;let i = index">
-      <ion-card [routerLink]="['/', 'home', item.id]">
-        <ion-img [src]="item.imageUrl"></ion-img>
-        <ion-card-content>
-          <h2>{{ item.merk + item.model }}</h2>
-          <p>Rp. {{ item.harga }}</p>
-          <p>Tersedia : {{item.stock}}</p>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<ion-card [routerLink]="['/', 'home', item.id]">
+  <ion-img [src]="item.imageUrl"></ion-img>
+  <ion-card-content>
+    <h2>{{ item.merk + item.model }}</h2>
+    <p>Rp. {{ item.harga }}</p>
+    <p>Tersedia : {{item.stock}}</p>
+  </ion-card-content>
+</ion-card>
+
+<!--<ion-content>-->
+<!--  <ion-grid>-->
+<!--    <ion-row>-->
+<!--      <ion-col size="12" *ngFor="let item of items;let i = index">-->
+<!--                <ion-card [routerLink]="['/', 'home', item.id]">-->
+<!--                  <ion-img [src]="item.imageUrl"></ion-img>-->
+<!--                  <ion-card-content>-->
+<!--                    <h2>{{ item.merk + item.model }}</h2>-->
+<!--                    <p>Rp. {{ item.harga }}</p>-->
+<!--                    <p>Tersedia : {{item.stock}}</p>-->
+<!--                  </ion-card-content>-->
+<!--                </ion-card>-->
+<!--      </ion-col>-->
+<!--    </ion-row>-->
+<!--  </ion-grid>-->
+<!--</ion-content>-->

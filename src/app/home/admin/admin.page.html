@@ -11,5 +11,34 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item-sliding *ngFor="let item of items;let i = index" #slidingItem>
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <ion-img [src]="item.imageUrl"></ion-img>
+              </ion-thumbnail>
+              <ion-label>
+                <h2>{{ item.merk + item.model }}</h2>
+                <p>{{ item.harga  }}</p>
+                <p>{{ item.stock }}</p>
+              </ion-label>
+            </ion-item>
+            <ion-item-options side="start">
+              <ion-item-option (click)="edit(i,item,slidingItem)">
+                <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+            <ion-item-options side="end">
+              <ion-item-option (click)="delete(item,slidingItem)">
+                <ion-icon name="trash" slot="icon-only"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
