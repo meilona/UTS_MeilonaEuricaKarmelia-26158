@@ -14,7 +14,10 @@ export class DetailPage implements OnInit {
 
   constructor(
       private activatedRoute: ActivatedRoute,
-      private homeService: HomeService
+      private homeService: HomeService,
+      private toastController: ToastController,
+      private router: Router,
+      private alertCtrl: AlertController
   ) {}
 
   ngOnInit() {

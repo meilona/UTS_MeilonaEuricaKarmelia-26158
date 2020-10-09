@@ -43,4 +43,12 @@ export class HomeService {
         return item.id === itemId;
       })};
   }
+
+  deleteItem(itemId: string) {
+    // filter = salah satu fungsi array
+    this.items = this.items.filter(item => {
+      // yang tidak sama dengan id recipe di filter
+      return item.id !== itemId;
+    });
+  }
 }
