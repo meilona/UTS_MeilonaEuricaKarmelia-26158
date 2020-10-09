@@ -11,43 +11,45 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="editForm" (ngSubmit)="addVideo(video); clearForm.resetForm()" #clearForm="ngForm">
-    <ion-item>
-      <ion-label position="stacked">URL Foto</ion-label>
-      <ion-input type="url" placeholder="Enter Input"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Nama</ion-label>
-      <ion-input placeholder="Enter Input"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Model</ion-label>
-      <ion-input placeholder="Enter Input"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Harga</ion-label>
-      <ion-input placeholder="Enter Input"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Stok</ion-label>
-      <ion-input type="number" placeholder="Enter Input"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Base clock</ion-label>
-      <ion-input placeholder="Enter Input"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Boost clock</ion-label>
-      <ion-input placeholder="Enter Input"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Core count</ion-label>
-      <ion-input type="number" placeholder="Enter Input"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Thread count</ion-label>
-      <ion-input type="number" placeholder="Enter Input"></ion-input>
-    </ion-item>
-    <button ion-button block type="submit" [disabled]="!videoForm.valid">Submit</button>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">URL Foto</ion-label>
+        <ion-input type="url" placeholder="Enter Input"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Nama</ion-label>
+        <ion-input placeholder="Enter Input"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Model</ion-label>
+        <ion-input placeholder="Enter Input"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Harga</ion-label>
+        <ion-input placeholder="Enter Input"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Stok</ion-label>
+        <ion-input type="number" placeholder="Enter Input"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Base clock</ion-label>
+        <ion-input placeholder="Enter Input"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Boost clock</ion-label>
+        <ion-input placeholder="Enter Input"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Core count</ion-label>
+        <ion-input type="number" placeholder="Enter Input"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Thread count</ion-label>
+        <ion-input type="number" placeholder="Enter Input"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block type="submit" [disabled]="!editForm.valid">Submit</button>
   </form>
 </ion-content>
