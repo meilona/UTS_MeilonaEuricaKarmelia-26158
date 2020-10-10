@@ -5,4 +5,5 @@ export interface Item {
     model: string;
     harga: string;
     stock: number;
+    jenis: string;
 }

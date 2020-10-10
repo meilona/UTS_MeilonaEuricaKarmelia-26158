@@ -12,7 +12,8 @@ export class HomeService {
       merk: 'Asg',
       model: 'Asg',
       harga: '154000',
-      stock: 45
+      stock: 45,
+      jenis: 'RAM'
     },
     {
       id: 'i2',
@@ -20,7 +21,8 @@ export class HomeService {
       merk: 'Vgen',
       model: 'Asg',
       harga: '79000',
-      stock: 21
+      stock: 21,
+      jenis: 'GPU'
     },
     {
       id: 'i3',
@@ -28,7 +30,8 @@ export class HomeService {
       merk: 'Asg',
       model: 'Asg',
       harga: '154000',
-      stock: 45
+      stock: 45,
+      jenis: 'CPU'
     }
   ];
 

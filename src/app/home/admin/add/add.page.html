@@ -1,9 +1,46 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>add</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button default-href="'/' + 'admin'" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Tambah Produk</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit(addForm.value)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">imageUrl</ion-label>
+        <ion-input inputmode="text" formControlName="imageUrl"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Jenis</ion-label>
+        <ion-select formControlName="jenis">
+          <ion-select-option value="RAM">RAM</ion-select-option>
+          <ion-select-option value="GPU">GPU</ion-select-option>
+          <ion-select-option value="CPU">CPU</ion-select-option>
+          <ion-select-option value="Motherboard">Motherboard</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Merk</ion-label>
+        <ion-input inputmode="text" formControlName="merk"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Model</ion-label>
+        <ion-input inputmode="text" formControlName="model"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Harga</ion-label>
+        <ion-input inputmode="text" formControlName="harga"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Stock</ion-label>
+        <ion-input inputmode="number" formControlName="stock"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button [disabled]="!addForm.valid" type="submit" expand="full" color="tertiary">Submit
+    </ion-button>
+  </form>
 </ion-content>
