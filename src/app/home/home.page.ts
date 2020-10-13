@@ -11,9 +11,10 @@ import {ModalController} from '@ionic/angular';
 export class HomePage implements OnInit{
   items: Item[];
 
+  isGrid = false;
+
   constructor(
-      private homeService: HomeService,
-      private modalCtrl: ModalController
+      private homeService: HomeService
   ) {}
 
   ngOnInit() {
@@ -21,6 +22,14 @@ export class HomePage implements OnInit{
 
   ionViewWillEnter(){
     this.items = this.homeService.getAllItems();
+  }
+
+  viewGrid() {
+    return this.isGrid = true;
+  }
+
+  viewList() {
+    return this.isGrid = false;
   }
 
 }

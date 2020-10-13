@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
-import {GridComponent} from './components/grid/grid.component';
 import {IonicModule} from '@ionic/angular';
 
 const routes: Routes = [
