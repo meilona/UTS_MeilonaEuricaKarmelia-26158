@@ -16,11 +16,8 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">Jenis</ion-label>
-        <ion-select formControlName="jenis">
-          <ion-select-option value="RAM">RAM</ion-select-option>
-          <ion-select-option value="GPU">GPU</ion-select-option>
-          <ion-select-option value="CPU">CPU</ion-select-option>
-          <ion-select-option value="Motherboard">Motherboard</ion-select-option>
+        <ion-select formControlName="jenis" (ionChange)="onSelectedJenis($event)">
+          <ion-select-option *ngFor="let jenis of jenisOptions" value='{{ jenis.value }}'>{{ jenis.displayValue }}</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
@@ -39,6 +36,69 @@
         <ion-label position="floating">Stock</ion-label>
         <ion-input inputmode="number" formControlName="stock"></ion-input>
       </ion-item>
+<!--      detail cpu-->
+      <ion-grid *ngIf="selectedJenis === 'CPU'">
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Base clock</ion-label>
+              <ion-input inputmode="text" formControlName="baseClock"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Boost clock</ion-label>
+              <ion-input inputmode="text" formControlName="boostClock"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Core count</ion-label>
+              <ion-input inputmode="number" formControlName="coreCount"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Thread count</ion-label>
+              <ion-input inputmode="number" formControlName="threadCount"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+<!--      detail ram-->
+      <ion-grid *ngIf="selectedJenis === 'RAM'">
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Speed</ion-label>
+              <ion-input inputmode="text" formControlName="speed"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Size</ion-label>
+              <ion-input inputmode="text" formControlName="size"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+<!--      detail motherboard-->
+      <ion-grid *ngIf="selectedJenis === 'Motherboard'">
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Chipset</ion-label>
+              <ion-input inputmode="text" formControlName="chipset"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Untuk prosesor</ion-label>
+              <ion-input inputmode="text" formControlName="toMerk"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-list>
     <ion-button [disabled]="!addForm.valid" type="submit" expand="full" color="tertiary">Submit
     </ion-button>

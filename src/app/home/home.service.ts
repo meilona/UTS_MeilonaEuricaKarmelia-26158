@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Item} from './item.model';
+import {CPU} from './cpu.model';
+import {RAM} from './ram.model';
+import {Motherboard} from './motherboard.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +38,32 @@ export class HomeService {
     }
   ];
 
+  private cpus: CPU[] = [
+      {
+        id: 'i1',
+        baseClock: 'as',
+        boostClock: 'as',
+        coreCount: 12,
+        threadCount: 21,
+      }
+  ];
+
+  private rams: RAM[] = [
+      {
+        id: 'i2',
+        speed: 'asd',
+        size: 'adsa'
+      }
+  ];
+
+  private motherboards: Motherboard[] = [
+      {
+        id: 'i3',
+        chipset: 'sss',
+        toMerk: 'xza'
+      }
+  ];
+
   constructor() { }
 
   getAllItems(){
@@ -53,5 +82,58 @@ export class HomeService {
       // yang tidak sama dengan id recipe di filter
       return item.id !== itemId;
     });
+  }
+
+  addItem(item: Item){
+    const idSize: number = this.items.length + 1;
+    const newItem: Item = {
+      id: item.id + idSize,
+      imageUrl: item.imageUrl,
+      merk: item.merk,
+      model: item.model,
+      harga: item.harga,
+      stock: item.stock,
+      jenis: item.jenis
+    };
+    this.items.push(newItem);
+    console.log(newItem);
+  }
+
+  addDetailCPU(cpu: CPU){
+    const idSize: number = this.items.length;
+
+    const newItemDetail: CPU = {
+      id: cpu.id + idSize,
+      baseClock: cpu.baseClock,
+      boostClock: cpu.boostClock,
+      coreCount: cpu.coreCount,
+      threadCount: cpu.threadCount
+    };
+    this.cpus.push(newItemDetail);
+    console.log(newItemDetail);
+  }
+
+  addDetailRAM(ram: RAM){
+    const idSize: number = this.items.length;
+
+    const newItemDetail: RAM = {
+      id: ram.id + idSize,
+      speed: ram.speed,
+      size: ram.size
+    };
+    this.rams.push(newItemDetail);
+    console.log(newItemDetail);
+  }
+
+  addDetailMotherboard(motherboards: Motherboard){
+    const idSize: number = this.items.length;
+
+    const newItemDetail: Motherboard = {
+      id: motherboards.id + idSize,
+      chipset: motherboards.chipset,
+      toMerk: motherboards.toMerk
+    };
+    this.motherboards.push(newItemDetail);
+    console.log(newItemDetail);
   }
 }
