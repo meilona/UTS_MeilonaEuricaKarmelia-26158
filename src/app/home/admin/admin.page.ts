@@ -3,6 +3,7 @@ import {Item} from '../item.model';
 import {AlertController, IonItemSliding, ModalController, ToastController} from '@ionic/angular';
 import {HomeService} from '../home.service';
 import {Router} from '@angular/router';
+import {EditComponent} from './edit/edit.component';
 
 @Component({
   selector: 'app-admin',
@@ -73,9 +74,23 @@ export class AdminPage implements OnInit {
   edit(i: any, item: Item, slidingItem: IonItemSliding) {
     slidingItem.close();
     const index = i;
-    // const itemId = item.id;
-    console.log(item.id, 'edited');
-    // this.editModal(contactId, index);
+    const itemId = item.id;
+    console.log(itemId, 'click');
+    this.editModal(itemId, index);
+  }
+
+  async editModal(itemId: string, index: any) {
+    const modal = await this.modalCtrl.create({
+      component: EditComponent,
+      componentProps: { selectedItem: itemId, selectedIndex: index }
+    });
+
+    modal.onDidDismiss().then(resultData => {
+      console.log(resultData.data, resultData.role);
+      this.ionViewWillEnter();
+    });
+
+    return await modal.present();
   }
 
 }

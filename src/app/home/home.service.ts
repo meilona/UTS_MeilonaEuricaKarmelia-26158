@@ -25,7 +25,7 @@ export class HomeService {
       model: 'Asg',
       harga: '79000',
       stock: 21,
-      jenis: 'GPU'
+      jenis: 'CPU'
     },
     {
       id: 'i3',
@@ -34,13 +34,13 @@ export class HomeService {
       model: 'Asg',
       harga: '154000',
       stock: 45,
-      jenis: 'CPU'
+      jenis: 'Motherboard'
     }
   ];
 
   private cpus: CPU[] = [
       {
-        id: 'i1',
+        id: 'i2',
         baseClock: 'as',
         boostClock: 'as',
         coreCount: 12,
@@ -50,7 +50,7 @@ export class HomeService {
 
   private rams: RAM[] = [
       {
-        id: 'i2',
+        id: 'i1',
         speed: 'asd',
         size: 'adsa'
       }
@@ -64,6 +64,8 @@ export class HomeService {
       }
   ];
 
+  private i: number;
+
   constructor() { }
 
   getAllItems(){
@@ -76,10 +78,39 @@ export class HomeService {
       })};
   }
 
+  getCPU(itemId: string) {
+    return {...this.cpus.find(cpu => {
+        return cpu.id === itemId;
+      })};
+  }
+
+  getRAM(itemId: string) {
+    return {...this.rams.find(ram => {
+        return ram.id === itemId;
+      })};
+  }
+
+  getMotherboard(itemId: string) {
+    return {...this.motherboards.find(motherboard => {
+        return motherboard.id === itemId;
+      })};
+  }
+
   deleteItem(itemId: string) {
-    // filter = salah satu fungsi array
     this.items = this.items.filter(item => {
-      // yang tidak sama dengan id recipe di filter
+      if (item.jenis === 'CPU') {
+        this.cpus = this.cpus.filter(cpu => {
+          return cpu.id !== itemId;
+        });
+      } else if (item.jenis === 'RAM') {
+        this.rams = this.rams.filter(ram => {
+          return ram.id !== itemId;
+        });
+      } else if (item.jenis === 'Motherboard') {
+        this.motherboards = this.motherboards.filter(motherboard => {
+          return motherboard.id !== itemId;
+        });
+      }
       return item.id !== itemId;
     });
   }
@@ -135,5 +166,34 @@ export class HomeService {
     };
     this.motherboards.push(newItemDetail);
     console.log(newItemDetail);
+  }
+
+  editItem(item: any, selectedIndex: any){
+    this.items[selectedIndex] = item;
+    console.log(item);
+  }
+
+  editDetailCPU(cpu: any){
+    for (this.i = 0; this.i < this.cpus.length; this.i++) {
+      if (this.cpus[this.i].id === cpu.id) {
+        this.cpus[this.i] = cpu;
+      }
+    }
+  }
+
+  editDetailRAM(ram: any){
+    for (this.i = 0; this.i < this.rams.length; this.i++) {
+      if (this.rams[this.i].id === ram.id) {
+        this.rams[this.i] = ram;
+      }
+    }
+  }
+
+  editDetailMotherboard(motherboard: any){
+    for (this.i = 0; this.i < this.motherboards.length; this.i++) {
+      if (this.motherboards[this.i].id === motherboard.id) {
+        this.motherboards[this.i] = motherboard;
+      }
+    }
   }
 }

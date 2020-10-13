@@ -16,7 +16,6 @@ import {Motherboard} from '../../motherboard.model';
 })
 export class AddPage implements OnInit {
   addForm: FormGroup;
-  detailForm: FormGroup;
   selectedJenis = '';
 
   public jenisOptions = [
@@ -193,8 +192,14 @@ export class AddPage implements OnInit {
       message: 'Adding item...',
       duration: 3000
     });
+
+    loading.onDidDismiss().then((dis) => {
+      this.presentToast();
+      this.router.navigate(['/home/admin']);
+    });
+
     await loading.present();
-    // const { role, data } = await loading.onDidDismiss();
+    const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed');
   }
 
@@ -247,9 +252,6 @@ export class AddPage implements OnInit {
         };
         this.homeService.addDetailMotherboard(newItemDetail);
       }
-      // this.modalCtrl.dismiss( 'success', 'confirm');
-      // this.presentToast();
-      this.router.navigate(['/home/admin']);
     });
   }
 

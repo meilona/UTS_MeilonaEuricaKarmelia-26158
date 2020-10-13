@@ -13,21 +13,87 @@
         <ion-img [src]="loadedItem.imageUrl"></ion-img>
     </ion-card-header>
     <ion-card-content>
-      <ion-item>
-        <ion-label class="detailName">
-          {{ loadedItem.merk + loadedItem.model }}
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label class="detailHarga">
-          Rp. {{ loadedItem.harga}}
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label class="detailStock">
-          Tersedia: {{ loadedItem.stock}}
-        </ion-label>
-      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label class="detailName">
+                {{ loadedItem.merk + loadedItem.model }}
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="detailHarga">
+                Rp. {{ loadedItem.harga}}
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="detailStock">
+                Tersedia: {{ loadedItem.stock}}
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="loadedItem.jenis !== null">
+          <ion-col size="12">
+            <h2>Produk Detail </h2>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+<!--      CPU details-->
+      <ion-grid *ngIf="loadedItem.jenis === 'CPU'">
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label>Base clock : {{loadedCpu.baseClock}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label>Boost clock : {{loadedCpu.boostClock}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label>Core count : {{loadedCpu.coreCount}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label>Thread count : {{loadedCpu.threadCount}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!--      detail ram-->
+      <ion-grid *ngIf="loadedItem.jenis === 'RAM'">
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label>Speed : {{loadedRam.speed}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label>Size : {{loadedRam.size}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!--      detail motherboard-->
+      <ion-grid *ngIf="loadedItem.jenis === 'Motherboard'">
+        <ion-row>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label>Chipset : {{loadedMotherboard.chipset}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position>Untuk prosesor : {{loadedMotherboard.toMerk}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 </ion-content>
