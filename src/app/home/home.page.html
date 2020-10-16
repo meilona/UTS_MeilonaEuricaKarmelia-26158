@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button menu="homeMenu"></ion-menu-button>
     </ion-buttons>
@@ -16,8 +16,8 @@
     <ion-row *ngIf="isGrid === true">
       <ion-col size="6" *ngFor="let item of items;let i = index">
         <ion-card [routerLink]="['/', 'home', item.id]" *ngIf="item.stock > 0">
-          <ion-img [src]="item.imageUrl[0]"></ion-img>
-          <ion-card-content>
+          <ion-img [src]="item.imageUrl[0]" style="width: 50%"></ion-img>
+          <ion-card-content >
             <h2>{{ item.merk + ' ' + item.model }}</h2>
             <p>Rp. {{ item.harga }}</p>
             <p>Tersedia : {{item.stock}}</p>

@@ -12,10 +12,10 @@
     <ion-list>
       <ion-item>
         <ion-label position="floating">imageUrl (for more than one image, separated by commas)</ion-label>
-        <ion-input inputmode="text" formControlName="imageUrl"></ion-input>
+        <ion-textarea inputmode="text" formControlName="imageUrl"></ion-textarea>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Jenis</ion-label>
+        <ion-label position="floating">Jenis Produk</ion-label>
         <ion-select formControlName="jenis" (ionChange)="onSelectedJenis($event)">
           <ion-select-option *ngFor="let jenis of jenisOptions" value='{{ jenis.value }}'>{{ jenis.displayValue }}</ion-select-option>
         </ion-select>
@@ -88,13 +88,13 @@
           <ion-col size="6">
             <ion-item>
               <ion-label position="floating">Chipset</ion-label>
-              <ion-input inputmode="text" formControlName="chipset"></ion-input>
+              <ion-textarea inputmode="text" formControlName="chipset"></ion-textarea>
             </ion-item>
           </ion-col>
           <ion-col size="6">
             <ion-item>
-              <ion-label position="floating">Untuk prosesor</ion-label>
-              <ion-input inputmode="text" formControlName="toMerk"></ion-input>
+              <ion-label position="floating">Compatible to</ion-label>
+              <ion-textarea inputmode="text" formControlName="toMerk"></ion-textarea>
             </ion-item>
           </ion-col>
         </ion-row>

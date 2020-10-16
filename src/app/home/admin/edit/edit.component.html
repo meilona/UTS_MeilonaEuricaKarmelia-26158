@@ -22,7 +22,11 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">ImageUrl (for more than one image, separated by commas)</ion-label>
-        <ion-input inputmode="email" formControlName="imageUrl"></ion-input>
+        <ion-textarea inputmode="text" formControlName="imageUrl"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Jenis Produk</ion-label>
+        <ion-input [disabled]="true" inputmode="text" formControlName="jenis"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Harga</ion-label>
@@ -84,19 +88,19 @@
           <ion-col size="6">
             <ion-item>
               <ion-label position="floating">Chipset</ion-label>
-              <ion-input inputmode="text" formControlName="chipset"></ion-input>
+              <ion-textarea inputmode="text" formControlName="chipset"></ion-textarea>
             </ion-item>
           </ion-col>
           <ion-col size="6">
             <ion-item>
-              <ion-label position="floating">Untuk prosesor</ion-label>
-              <ion-input inputmode="text" formControlName="toMerk"></ion-input>
+              <ion-label position="floating">Compatible to</ion-label>
+              <ion-textarea inputmode="text" formControlName="toMerk"></ion-textarea>
             </ion-item>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-list>
-    <ion-button [disabled]="!editForm.valid" type="submit" expand="full" color="tertiary">Submit
+    <ion-button [disabled]="!editForm.valid" type="submit" expand="full" color="secondary">Submit
     </ion-button>
   </form>
 </ion-content>

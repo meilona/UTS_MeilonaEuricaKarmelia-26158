@@ -43,7 +43,7 @@ export class HomeService {
     {
       id: 'i4',
       imageUrl: ['https://sc01.alicdn.com/kf/HTB1drcBKpXXXXc4XVXXq6xXFXXXn.jpg',
-      'https://www.amazon.com/AMD-1100T-HDE00ZFBK6DGR-Processor-938-pin/dp/B00P2ED2OU'],
+      'https://images-na.ssl-images-amazon.com/images/I/71rzp7ei5iL._AC_SL1249_.jpg'],
       merk: 'AMD',
       model: 'Phenom II X6 1100T',
       harga: '38000000',

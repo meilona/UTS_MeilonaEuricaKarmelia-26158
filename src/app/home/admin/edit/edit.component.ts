@@ -78,6 +78,10 @@ export class EditComponent implements OnInit {
     return this.editForm.get('toMerk');
   }
 
+  get jenis() {
+    return this.editForm.get('jenis');
+  }
+
   constructor(
       private modalCtrl: ModalController,
       private loadingCtrl: LoadingController,
@@ -93,6 +97,7 @@ export class EditComponent implements OnInit {
       imageUrl: new FormControl('', Validators.required),
       harga: new FormControl('', Validators.required),
       stock: new FormControl('', Validators.required),
+      jenis: new FormControl('', Validators.required),
       baseClock: new FormControl(''),
       boostClock: new FormControl(''),
       coreCount: new FormControl(''),
@@ -151,6 +156,7 @@ export class EditComponent implements OnInit {
     this.editForm.controls.imageUrl.setValue(this.itemData.imageUrl);
     this.editForm.controls.harga.setValue(this.itemData.harga);
     this.editForm.controls.stock.setValue(this.itemData.stock);
+    this.editForm.controls.jenis.setValue(this.itemData.jenis);
 
     if (this.itemData.jenis === 'CPU') {
       this.cpuData = this.homeService.getCPU(itemId);
