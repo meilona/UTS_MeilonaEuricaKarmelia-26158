@@ -15,10 +15,10 @@
   <ion-grid>
     <ion-row *ngIf="isGrid === true">
       <ion-col size="6" *ngFor="let item of items;let i = index">
-        <ion-card [routerLink]="['/', 'home', item.id]">
-          <ion-img [src]="item.imageUrl"></ion-img>
+        <ion-card [routerLink]="['/', 'home', item.id]" *ngIf="item.stock > 0">
+          <ion-img [src]="item.imageUrl[0]"></ion-img>
           <ion-card-content>
-            <h2>{{ item.merk + item.model }}</h2>
+            <h2>{{ item.merk + ' ' + item.model }}</h2>
             <p>Rp. {{ item.harga }}</p>
             <p>Tersedia : {{item.stock}}</p>
           </ion-card-content>
@@ -27,9 +27,9 @@
     </ion-row>
     <ion-row *ngIf="isGrid === false">
       <ion-col size="12" *ngFor="let item of items;let i = index">
-        <ion-item [routerLink]="['/', 'home', item.id]">
+        <ion-item [routerLink]="['/', 'home', item.id]"  *ngIf="item.stock > 0">
           <ion-thumbnail slot="start">
-            <ion-img [src]="item.imageUrl"></ion-img>
+            <ion-img [src]="item.imageUrl[0]"></ion-img>
           </ion-thumbnail>
           <ion-label>
             <h2>{{ item.merk + item.model }}</h2>

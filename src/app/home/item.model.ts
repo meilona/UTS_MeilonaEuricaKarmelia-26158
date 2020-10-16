@@ -1,6 +1,6 @@
 export interface Item {
     id: string;
-    imageUrl: string;
+    imageUrl: string[];
     merk: string;
     model: string;
     harga: string;

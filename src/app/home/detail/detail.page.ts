@@ -18,6 +18,13 @@ export class DetailPage implements OnInit {
   loadedRam: RAM;
   loadedMotherboard: Motherboard;
 
+  slideOpts = {
+    initialSlide: 1,
+    slidesPerView: 1,
+    autoplay: true,
+    speed: 300
+  };
+
   constructor(
       private activatedRoute: ActivatedRoute,
       private homeService: HomeService,

@@ -202,15 +202,16 @@ export class EditComponent implements OnInit {
       const imageUrl = values.imageUrl;
       const harga = values.harga;
       const stock = values.stock;
-      // let splittedImage;
+      let splittedImage;
 
-      // if (typeof imageUrl === 'string'){
-      //   splittedImage = imageUrl.split(',');
-      //   this.sendEdittedData(merk, model, splittedImage, harga, stock);
-      // } else {
-      //   this.sendEdittedData(merk, model, imageUrl, harga, stock);
-      // }
-      this.sendEdittedData(merk, model, imageUrl, harga, stock);
+      if (typeof imageUrl === 'string'){
+        splittedImage = imageUrl.split(',');
+        splittedImage = this.filteredData(splittedImage);
+        this.sendEdittedData(merk, model, splittedImage, harga, stock);
+      } else {
+        this.sendEdittedData(merk, model, imageUrl, harga, stock);
+      }
+
       if (this.itemData.jenis === 'CPU') {
         const edittedDetail: CPU = {
           id: this.selectedItem,
@@ -244,18 +245,18 @@ export class EditComponent implements OnInit {
     });
   }
 
-  filteredData(splittedData){
+  filteredData(splittedImage){
     const tempArr = [];
-    for (this.i = 0; this.i < splittedData.length; this.i++) {
-      const now = splittedData[this.i].trim();
+    for (this.i = 0; this.i < splittedImage.length; this.i++) {
+      const now = splittedImage[this.i].trim();
       if (now !== undefined && now !== '') {
-        tempArr.push(splittedData[this.i]);
+        tempArr.push(splittedImage[this.i]);
       }
     }
     return tempArr;
   }
 
-  sendEdittedData(merk: string, model: string, imageUrl: string, harga: any, stock: any){
+  sendEdittedData(merk: string, model: string, imageUrl: any, harga: any, stock: any){
     const edittedItem: Item = {
       id: this.selectedItem,
       merk,

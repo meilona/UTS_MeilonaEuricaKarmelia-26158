@@ -11,7 +11,7 @@
   <form [formGroup]="addForm" (ngSubmit)="onSubmit(addForm.value)">
     <ion-list>
       <ion-item>
-        <ion-label position="floating">imageUrl</ion-label>
+        <ion-label position="floating">imageUrl (for more than one image, separated by commas)</ion-label>
         <ion-input inputmode="text" formControlName="imageUrl"></ion-input>
       </ion-item>
       <ion-item>

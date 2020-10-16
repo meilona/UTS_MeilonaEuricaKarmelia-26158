@@ -17,6 +17,7 @@ import {Motherboard} from '../../motherboard.model';
 export class AddPage implements OnInit {
   addForm: FormGroup;
   selectedJenis = '';
+  private i: number;
 
   public jenisOptions = [
     { value: 'RAM', displayValue: 'RAM' },
@@ -212,10 +213,17 @@ export class AddPage implements OnInit {
     const harga = values.harga;
     const stock = values.stock;
 
+    let splittedImage;
+
+    if (typeof imageUrl === 'string'){
+      splittedImage = imageUrl.split(',');
+      splittedImage = this.filteredData(splittedImage);
+    }
+
     // build new item data
     const newItem: Item = {
       id: 'i',
-      imageUrl,
+      imageUrl: splittedImage,
       jenis,
       merk,
       model,
@@ -253,6 +261,17 @@ export class AddPage implements OnInit {
         this.homeService.addDetailMotherboard(newItemDetail);
       }
     });
+  }
+
+  filteredData(splittedImage){
+    const tempArr = [];
+    for (this.i = 0; this.i < splittedImage.length; this.i++) {
+      const now = splittedImage[this.i].trim();
+      if (now !== undefined && now !== '') {
+        tempArr.push(splittedImage[this.i]);
+      }
+    }
+    return tempArr;
   }
 
 }
