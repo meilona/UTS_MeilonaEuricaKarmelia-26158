@@ -177,7 +177,7 @@ export class EditComponent implements OnInit {
 
   async presentLoading() {
     const loading = await this.loadingCtrl.create({
-      message: 'Saving contact...',
+      message: 'Saving item...',
       duration: 2000
     });
     await loading.present();
@@ -188,7 +188,7 @@ export class EditComponent implements OnInit {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Contact Editted.',
+      message: 'Item Editted.',
       color: 'success',
       duration: 2000
     });
